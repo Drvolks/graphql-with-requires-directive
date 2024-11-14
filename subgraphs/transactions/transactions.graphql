@@ -1,0 +1,16 @@
+type Transaction @key(fields:"id") {
+    id:ID!
+    user: User!
+    userHasCreditCardProduct: Boolean @requires(fields: "user { products { id type } }")
+}
+
+type User @key(fields: "id") {
+  id: ID!
+  products: [Product!] @external
+  transactions: [Transaction!]
+}
+
+type Product @key(fields: "id") {
+  id: ID!
+  type: String! @external
+}

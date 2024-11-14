@@ -1,0 +1,11 @@
+
+type Product @key(fields: "id") {
+  id: ID!
+  type: String!
+  owner: User!
+}
+
+extend type User @key(fields: "id") {
+  id: ID!
+  products: [Product!]
+}
