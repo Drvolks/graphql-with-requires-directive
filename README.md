@@ -1,6 +1,9 @@
 # Purpose
 Testing `@requires` with a field being a list of elements. The _entities returning the list of elements should include the key ID as part of the payload.
 
+## The entity field this is testing
+`userHasCreditCardProduct: Boolean @requires(fields: "user { products { id type } }")`
+
 # Execute
 
 ## Users subgraph
